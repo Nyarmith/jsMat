@@ -174,7 +174,7 @@ function Matrix(row, col){
   self.rows = row;
   self.cols = col;
   self.size = row*col;
-  self.data = new Array(this.size);
+  self.data = new Array(self.size);
   return self;
 }
 
@@ -237,16 +237,28 @@ function makeVector(){
   return M;
 }
 
+function scaleMat(){
+  if (arguments.length < 1)
+    throw "Error, no arguments passed to makeVector";
+  M = Matrix(arguments.length, arguments.length);
+  M.data.fill(0);
+  for (let i=0; i<arguments.length; ++i){
+    M.set(i+1,i+1,arguments[i]);
+  }
+  return M;
+}
+
 /** 
  * Exposed interface for matrix lib
  */
 
 var Mat = {
-  'rotx' : (XRotMat),
-  'roty' : (YRotMat),
-  'rotz' : (ZRotMat),
-  'rotg' : (gRotMat),
-  'vec'  : (makeVector),
+  'rotx'   : (XRotMat),
+  'roty'   : (YRotMat),
+  'rotz'   : (ZRotMat),
+  'rotg'   : (gRotMat),
+  'vec'    : (makeVector),
+  'scale'  : (scaleMat),
 }
 
 
