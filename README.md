@@ -8,9 +8,10 @@ Pros:
 
 Cons:
 - Lots of object creation
-- No performant tricks
+- Few performant tricks
 
 Note: By default, vectors are column-vectors
+Row and Column Indexing starts from 1
 
 #### Initialization
 ```
@@ -23,7 +24,6 @@ v = Mat.vec(0,1,2); //make a vector, accepts an arbitrary number of objects
 M = Mat.rotv(10); //make a rotation matrix about the x-axis that rotates 10 degrees
 ```
 
-Indexing starts from 1
 
 #### Available Operations
 ```
